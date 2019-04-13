@@ -1,0 +1,12 @@
+import bs4 as bs
+import urllib.request
+
+sauce = urllib.request.urlopen('https://www.flipkart.com').read()
+soup = bs.BeautifulSoup(sauce,'lxml')
+
+body = soup.body
+
+#body = soup.find(text="large")
+
+for text in body.find_all(text="large"):
+  print(text)
